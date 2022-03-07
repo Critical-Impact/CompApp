@@ -49,7 +49,7 @@
                             </label>
                             <select id="club_id" name="club_id" class="select select-bordered w-full max-w-xs">
                                 @foreach ($clubs as $club)
-                                    <option value="{{ $club->id }}" @selected(old('club_id', $team->club_id) == $club->id)>
+                                    <option value="{{ $club->id }}" {{ old('club_id', $team->club_id) == $club->id ? "selected" : "" }}>
                                     {{ $club->name }}
                                     </option>
                                 @endforeach

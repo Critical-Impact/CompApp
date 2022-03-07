@@ -6,14 +6,15 @@ use Illuminate\View\Component;
 
 class DeleteButton extends Component
 {
+    public $action;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($action)
     {
-        //
+        $this->action = $action;
     }
 
     /**

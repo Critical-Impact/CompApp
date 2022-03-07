@@ -41,16 +41,16 @@
                                         <span class="label-text">Result</span>
                                     </label>
                                     <select name="team_one_status" class="select select-bordered w-full max-w-xs">
-                                        <option value="N/A" @selected(old('team_one_status', $heat_result->team_one_status) == "N/A")>
+                                        <option value="N/A" {{ old('team_one_status', $heat_result->team_one_status) == "N/A" ? "selected" : "" }}>
                                         N/A
                                         </option>
-                                        <option value="WIN" @selected(old('team_one_status', $heat_result->team_one_status) == "WIN")>
+                                        <option value="WIN" {{ old('team_one_status', $heat_result->team_one_status) == "WIN" ? "selected" : "" }}>
                                         WIN
                                         </option>
-                                        <option value="DNF" @selected(old('team_one_status', $heat_result->team_one_status) == "DNF")>
+                                        <option value="DNF" {{ old('team_one_status', $heat_result->team_one_status) == "DNF" ? "selected" : "" }}>
                                         DNF
                                         </option>
-                                        <option value="LOSS" @selected(old('team_one_status', $heat_result->team_one_status) == "LOSS")>
+                                        <option value="LOSS" {{ old('team_one_status', $heat_result->team_one_status) == "LOSS" ? "selected" : "" }}>
                                         LOSS
                                         </option>
                                     </select>
@@ -68,16 +68,16 @@
                                         <span class="label-text">Result</span>
                                     </label>
                                     <select name="team_two_status" class="select select-bordered w-full max-w-xs">
-                                        <option value="N/A" @selected(old('team_two_status', $heat_result->team_two_status) == "N/A")>
+                                        <option value="N/A" {{ old('team_two_status', $heat_result->team_two_status) == "N/A" ? "selected" : "" }}>
                                         N/A
                                         </option>
-                                        <option value="WIN" @selected(old('team_two_status', $heat_result->team_two_status) == "WIN")>
+                                        <option value="WIN" {{ old('team_two_status', $heat_result->team_two_status) == "WIN" ? "selected" : "" }}>
                                         WIN
                                         </option>
-                                        <option value="DNF" @selected(old('team_two_status', $heat_result->team_two_status) == "DNF")>
+                                        <option value="DNF" {{ old('team_two_status', $heat_result->team_two_status) == "DNF" ? "selected" : "" }}>
                                         DNF
                                         </option>
-                                        <option value="LOSS" @selected(old('team_two_status', $heat_result->team_two_status) == "LOSS")>
+                                        <option value="LOSS" {{ old('team_two_status', $heat_result->team_two_status) == "LOSS" ? "selected" : "" }}>
                                         LOSS
                                         </option>
                                     </select>

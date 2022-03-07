@@ -30,7 +30,7 @@
                             </label>
                             <select id="team_one_id" name="team_one_id" class="select select-bordered w-full max-w-xs">
                                 @foreach ($teams as $team)
-                                    <option value="{{ $team->id }}" @selected(old('team_one_id', $race->team_one_id) == $team->id)>
+                                    <option value="{{ $team->id }}" {{ old('team_one_id', $team->team_one_id) == $team->id ? "selected" : "" }}>
                                     {{ $team->name }}
                                     </option>
                                 @endforeach
@@ -41,7 +41,7 @@
                             </label>
                             <select id="team_one_id" name="team_two_id" class="select select-bordered w-full max-w-xs">
                                 @foreach ($teams as $team)
-                                    <option value="{{ $team->id }}" @selected(old('team_two_id', $race->team_two_id) == $team->id)>
+                                    <option value="{{ $team->id }}" {{ old('team_two_id', $team->team_two_id) == $team->id ? "selected" : "" }} >
                                     {{ $team->name }}
                                     </option>
                                 @endforeach
