@@ -1,0 +1,62 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.home-logo
+{
+    width:229px;
+    height:220px;
+    background: url("../images/flyball.png");
+}
+
+.logo
+{
+    width: 40px;
+    height: 38px;
+    background: url("../images/logo.png");
+}
+
+
+@media screen and (min-width: 992px) {
+    .hero-desc {
+        text-align: left;
+        margin-left: 70px;
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .login-form {
+        width: 500px;
+    }
+}
+
+
+.scores .race
+{
+    color: rgb(255, 204, 1);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.scores .division
+{
+    color: #ffcc01;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.scores .race-center-logo
+{
+    background: #000;
+}
+
+.scores .dogs-table
+{
+    border-collapse:separate;
+    border-spacing:0 1em;
+}
+.scores .dogs-table td
+{
+    padding-bottom:1em;
+}
