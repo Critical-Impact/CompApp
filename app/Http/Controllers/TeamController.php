@@ -84,7 +84,11 @@ class TeamController extends Controller
      */
     public function update(UpdateTeamRequest $request, Team $team)
     {
-
+        $team->name = $request->get("name");
+        $team->description = $request->get("description");
+        $team->seed_time = $request->get("seed_time", "");
+        $team->best_time = $request->get("best_time", "");
+        $team->club_id = $request->get("club_id");
         $team->save();
         return redirect(route("team.index"))->with('success', 'Team has been edited');
     }

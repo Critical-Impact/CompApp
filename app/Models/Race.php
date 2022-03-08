@@ -63,8 +63,7 @@ class Race extends Model
         else {
             $bestTime = min($bestTimeOne, $bestTimeTwo);
         }
-        $interval = CarbonInterval::seconds($bestTime)->cascade();
-        return ((string)$interval->minutes).".".((string)$interval->totalSeconds);
+        return number_format($bestTime, 3);
     }
 
     public function best_time_team_two()
@@ -87,8 +86,7 @@ class Race extends Model
         else {
             $bestTime = min($bestTimeOne, $bestTimeTwo);
         }
-        $interval = CarbonInterval::seconds($bestTime)->cascade();
-        return ((string)$interval->minutes).".".((string)$interval->totalSeconds);
+        return number_format($bestTime, 3);
     }
 
     public function competition()

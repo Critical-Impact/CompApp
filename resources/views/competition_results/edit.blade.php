@@ -35,7 +35,7 @@
                                     <label for="team_one_seconds" class="label">
                                         <span class="label-text">Time</span>
                                     </label>
-                                    <input id="team_one_seconds" name="team_one_seconds" type="number" placeholder="Time(in seconds)" value="{{ old('team_one_seconds', $heat_result->team_one_seconds) }}" class="input input-bordered w-full max-w-xs">
+                                    <input id="team_one_seconds" name="team_one_seconds" type="number" step="any" placeholder="Time(in seconds)" value="{{ old('team_one_seconds', $heat_result->team_one_seconds) }}" class="input input-bordered w-full max-w-xs">
 
                                     <label for="team_one_status" class="label">
                                         <span class="label-text">Result</span>
@@ -62,7 +62,7 @@
                                     <label for="team_two_seconds" class="label">
                                         <span class="label-text">Time</span>
                                     </label>
-                                    <input id="team_two_seconds" name="team_two_seconds" type="number" placeholder="Time(in seconds)" value="{{ old('team_two_seconds', $heat_result->team_two_seconds) }}" class="input input-bordered w-full max-w-xs">
+                                    <input id="team_two_seconds" name="team_two_seconds" type="number" step="any" placeholder="Time(in seconds)" value="{{ old('team_two_seconds', $heat_result->team_two_seconds) }}" class="input input-bordered w-full max-w-xs">
 
                                     <label for="team_two_status" class="label">
                                         <span class="label-text">Result</span>
