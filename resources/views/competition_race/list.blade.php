@@ -54,10 +54,10 @@
                                 @foreach ($competition->races as $race)
                                 <tr>
                                     <td>
-                                        {{ $race->team_one->name }}
+                                        {{ $race->team_one ? $race->team_one->name : "No Team Selected" }}
                                     </td>
                                     <td>
-                                        {{ $race->team_two->name }}
+                                        {{ $race->team_two ? $race->team_two->name : "No Team Selected" }}
                                     </td>
                                     <td>
                                         {{ $race->race_no }}
