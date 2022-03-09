@@ -18,4 +18,9 @@ class Competition extends Model
     {
         return $this->hasMany('App\Models\Race');
     }
+
+    public function active_race()
+    {
+        return $this->belongsTo('App\Models\Race');
+    }
 }

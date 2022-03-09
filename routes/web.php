@@ -31,6 +31,8 @@ Route::get('/dashboard', function () {
 
 Route::resource('club',ClubController::class)->middleware(["auth"]);
 Route::resource('team',TeamController::class)->middleware(["auth"]);
+Route::get('/competition/{competition}/competition_races/edit-race-view',[CompetitionController::class, "editRaceViews"]);
+Route::post('/competition/{competition}/competition_races/update-race-view',[CompetitionController::class, "updateRaceViews"]);
 Route::resource('competition',CompetitionController::class)->middleware(["auth"]);
 Route::get('/competition/{competition}/competition_teams/add', [CompetitionTeamController::class, 'add'])->middleware(["auth"]);
 Route::resource('competition.competition_teams', CompetitionTeamController::class)->middleware(["auth"]);
@@ -38,6 +40,8 @@ Route::resource('competition.competition_races', CompetitionRaceController::clas
 Route::post('/competition/{competition}/competition_races/{race}/results/{heat}/update', [CompetitionHeatResultController::class, 'update'])->middleware(["auth"]);
 Route::get('/competition/{competition}/competition_races/{race}/results/{heat}/edit', [CompetitionHeatResultController::class, 'edit'])->middleware(["auth"]);
 Route::resource('dog',DogController::class)->middleware(["auth"]);
+Route::get('/race-view/{competition}/details',[RaceViewController::class, "competitionDetails"]);
+Route::get('/race-view/{competition}',[RaceViewController::class, "competition"]);
 Route::get('/race-view/{race}/{heat}/dogs',[RaceViewController::class, "dogs"]);
 Route::get('/race-view/{race}/{heat}/scores',[RaceViewController::class, "scores"]);
 require __DIR__.'/auth.php';

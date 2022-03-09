@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCompetitionRequest;
 use App\Http\Requests\UpdateCompetitionRequest;
+use App\Http\Requests\UpdateRaceViewsRequest;
 use App\Models\Club;
 use App\Models\Competition;
+use App\Models\Race;
 use Database\Factories\ClubFactory;
 
 class CompetitionController extends Controller
@@ -118,5 +120,35 @@ class CompetitionController extends Controller
     {
         $competition->delete();
         return redirect(route("competition.index"))->with('success', 'Competition has been deleted');
+    }
+
+    /**
+     * @param  \App\Models\Competition  $competition
+     * @return \Illuminate\Http\Response
+     */
+    public function editRaceViews(Competition $competition)
+    {
+        $races = Race::whereCompetitionId($competition->id)->get();
+        return view('competition.race-views', ['races' => $races, 'competition' => $competition]);
+    }
+
+    /**
+     * @param  \App\Http\Requests\UpdateRaceViewsRequest  $request
+     * @param  \App\Models\Competition  $competition
+     * @return \Illuminate\Http\Response
+     */
+    public function updateRaceViews(UpdateRaceViewsRequest $request, Competition $competition)
+    {
+        $activeRaceId = $request->get("active_race_id");
+        $activeHeat = $request->get("active_heat");
+        $activeScreen = $request->get("active_screen");
+        $activeRaceId = $activeRaceId === "" ? null : $activeRaceId;
+        $activeHeat = $activeHeat === "" ? null : $activeHeat;
+        $activeScreen = $activeScreen === "" ? null : $activeScreen;
+        $competition->active_race_id = $activeRaceId;
+        $competition->active_heat = $activeHeat;
+        $competition->active_screen = $activeScreen;
+        $competition->save();
+        return redirect(action([CompetitionController::class, "editRaceViews"], ["competition" => $competition->id]))->with('success', 'Competition race view has been updated.');
     }
 }

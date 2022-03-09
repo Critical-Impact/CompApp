@@ -16,6 +16,12 @@
                     <a href="{{route('competition.competition_races.create', ['competition' => $competition])}}" class="btn btn-sm">
                         {{ __('Add') }}
                     </a>
+                    <a href="{{ action([\App\Http\Controllers\CompetitionController::class, "editRaceViews"], ['competition' => $competition]) }}" class="btn btn-sm">
+                        {{ __('Update Race View') }}
+                    </a>
+                    <a target="_blank" href="{{ action([\App\Http\Controllers\RaceViewController::class, "competition"], ['competition' => $competition]) }}" class="btn btn-sm">
+                        {{ __('Open Race View') }}
+                    </a>
                     <div class="overflow-x-auto">
                         <div class="divider"></div>
                         <table class="table w-full">
@@ -65,8 +71,6 @@
                                     <td>
                                         @for ($heat = 1; $heat <= $race->total_heats; $heat++)
                                             <a style="margin-bottom:10px;" class="btn btn-xs" href="{{ action([\App\Http\Controllers\CompetitionHeatResultController::class, 'edit'],["competition" => $race->competition, "race" => $race, "heat" => $heat]) }}">Heat {{ $heat }}</a>
-                                            <a style="margin-bottom:10px;" class="btn btn-xs" href="{{ action([\App\Http\Controllers\RaceViewController::class, 'dogs'],["race" => $race, "heat" => $heat]) }}" target="_blank">Dog View</a>
-                                            <a style="margin-bottom:10px;" class="btn btn-xs" href="{{ action([\App\Http\Controllers\RaceViewController::class, 'scores'],["race" => $race, "heat" => $heat]) }}" target="_blank">Race View</a>
                                             <br/>
                                         @endfor
                                     </td>

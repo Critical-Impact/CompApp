@@ -21,6 +21,11 @@ class Race extends Model
         return $this->belongsTo('App\Models\Team');
     }
 
+    public function activeCompetitions()
+    {
+        return $this->hasMany('App\Models\Competition');
+    }
+
     public function team_one_points()
     {
         $totalTeamOneWins = HeatResult::whereTeamOneId($this->team_one_id)->join("teams", "heat_results.team_one_id", "=", "teams.id")
@@ -29,7 +34,7 @@ class Race extends Model
         $totalTeamTwoWins = HeatResult::whereTeamTwoId($this->team_one_id)->join("teams", "heat_results.team_two_id", "=", "teams.id")
             ->where("heat_results.team_two_status", "WIN")
             ->count();
-        return ($totalTeamOneWins + $totalTeamTwoWins) * 2;
+        return floor(($totalTeamOneWins + $totalTeamTwoWins) / 3) * 2;
     }
 
     public function team_two_points()
@@ -40,7 +45,7 @@ class Race extends Model
         $totalTeamTwoWins = HeatResult::whereTeamTwoId($this->team_two_id)->join("teams", "heat_results.team_two_id", "=", "teams.id")
             ->where("heat_results.team_two_status", "WIN")
             ->count();
-        return ($totalTeamOneWins + $totalTeamTwoWins) * 2;
+        return floor(($totalTeamOneWins + $totalTeamTwoWins) / 3) * 2;
     }
 
     public function best_time_team_one()
